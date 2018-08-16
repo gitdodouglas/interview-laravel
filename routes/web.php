@@ -11,10 +11,6 @@
 |
 */
 
-//Route::get('/', function () {
-//    return view('welcome');
-//});
-
-Route::get('/{id}', function ($id) {
-    return $id;
+Route::get('/', function () {
+    return view('welcome');
 });
