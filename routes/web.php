@@ -12,3 +12,11 @@
 */
 
 Route::get('/', 'HomeController@index')->name('home');
+
+Route::get('/login', 'LoginController@index');
+Route::post('/login', 'LoginController@login')->name('login');
+
+Route::get('/logout', 'LogoutController@index');
+
+Route::get('/cadastro', 'CadastroController@index');
+Route::post('/cadastro', 'CadastroController@login')->name('cadastro');
