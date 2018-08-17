@@ -14,7 +14,7 @@ class Like extends Model
         'id', 'created_at', 'updated_at',
     ];
 
-    public function user()
+    public function post()
     {
         return $this->belongsTo(Post::class);
     }
