@@ -19,4 +19,4 @@ Route::post('/login', 'LoginController@login')->name('login');
 Route::get('/logout', 'LogoutController@index');
 
 Route::get('/cadastro', 'CadastroController@index');
-Route::post('/cadastro', 'CadastroController@login')->name('cadastro');
+Route::post('/cadastro', 'CadastroController@create')->name('cadastro');

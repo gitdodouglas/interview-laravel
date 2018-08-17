@@ -9,7 +9,7 @@ class CommentController extends Controller
 {
     public function create(Request $request)
     {
-        $comment = new Like;
+        $comment = new Comment;
         $comment->post_id = $request->json('post_id');
         $comment->user_id = $request->json('user_id');
         $comment->user_nickname = $request->json('user_nickname');
