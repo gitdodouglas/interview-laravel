@@ -21,6 +21,7 @@ Route::get('/logout', 'LogoutController@index');
 Route::get('/cadastro', 'CadastroController@index');
 Route::post('/cadastro', 'CadastroController@create')->name('cadastro');
 
-Route::get('/dash', 'DashController@index')->name('dash');
+Route::get('/dash', 'DashController@index');
+Route::post('/dash', 'DashController@create')->name('dash');
 
 Route::get('/@{nickname}', 'PerfilController@index')->name('perfil');

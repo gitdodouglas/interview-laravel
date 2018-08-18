@@ -3,18 +3,19 @@
 namespace App\Http\Controllers;
 
 use App\Post;
+use App\User;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
-    public function create(Request $request)
+    public function create(Request $request, User $user)
     {
         $post = new Post;
-        $post->user_id = $request->json('user_id');
-        $post->user_nickname = $request->json('user_nickname');
+        $post->user_id = $user->id;
+        $post->user_nickname = $user->nickname;
         $post->title = $request->json('title');
         $post->text = $request->json('text');
-        $post->view = $request->json('view');
+        $post->view = 0;
         $post->save();
         return $post;
     }

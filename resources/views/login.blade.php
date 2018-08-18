@@ -1,4 +1,4 @@
-<form id="form-cadastro">
+<form id="form-login">
     <input id="nickname" type="text" placeholder="Login"><br><br>
     <input id="password" type="password" placeholder="Senha"><br><br>
     <input id="token" type="hidden" value="{{ csrf_token() }}">
@@ -8,7 +8,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 <script>
     $(document).ready(function(){
-        $('#form-cadastro').submit(function(){
+        $('#form-login').submit(function(){
             const apelido = $('#nickname').val();
             const senha = $('#password').val();
             const token = $('#token').val();

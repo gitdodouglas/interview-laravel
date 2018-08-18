@@ -1,31 +1,27 @@
-<form id="form-cadastro">
-    <input id="name" type="text" placeholder="Nome"><br><br>
-    <input id="nickname" type="text" placeholder="Usuário"><br><br>
-    <input id="email" type="email" placeholder="E-mail"><br><br>
-    <input id="password" type="password" placeholder="Senha"><br><br>
+<form id="form-dash">
+    <input id="title" type="text" placeholder="Título"><br><br>
+    <input id="text" type="text" placeholder="Texto"><br><br>
     <input id="token" type="hidden" value="{{ csrf_token() }}">
-    <input type="submit" value="Cadastrar">
+    <input type="submit" value="Publicar">
 </form>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 <script>
     $(document).ready(function(){
-        $('#form-cadastro').submit(function(){
-            const nome = $('#name').val();
-            const apelido = $('#nickname').val();
-            const email = $('#email').val();
-            const senha = $('#password').val();
+        $('#form-dash').submit(function(){
+            const titulo = $('#title').val();
+            const texto = $('#text').val();
             const token = $('#token').val();
 
             const dados =  {
-                name: nome, nickname: apelido, email: email, password: senha, _token: token
+                title: titulo, text: texto, _token: token
             };
 
             console.log(dados);
 
             $.ajax({
                 method: 'post',
-                url: 'cadastro',
+                url: 'dash',
                 dataType: 'json',
                 contentType: 'application/json',
                 data: JSON.stringify(dados),
