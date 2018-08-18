@@ -39,4 +39,9 @@ class UserController extends Controller
     {
         return User::find($id);
     }
+
+    public function getPosts($id)
+    {
+        return User::find($id)->posts;
+    }
 }
