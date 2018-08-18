@@ -25,3 +25,5 @@ Route::get('/dash', 'DashController@index');
 Route::post('/dash', 'DashController@create')->name('dash');
 
 Route::get('/@{nickname}', 'PerfilController@index')->name('perfil');
+
+Route::get('/@{nickname}/post={id}', 'PostPageController@index')->name('post');

@@ -15,7 +15,7 @@ class PerfilController extends Controller
                 return [
                     'codigo' => 'success',
                     'objeto' => $userController->getPosts($user->id),
-                    'mensagem' => 'Usuário cadastrado com sucesso!',
+                    'mensagem' => null,
                 ];
             } else {
                 throw new \Exception('Perfil não encontrado.');
