@@ -12,6 +12,7 @@
 */
 
 Route::get('/', 'HomeController@index')->name('home');
+Route::post('/', 'HomeController@posts')->name('posts');
 
 Route::get('/login', 'LoginController@index');
 Route::post('/login', 'LoginController@login')->name('login');

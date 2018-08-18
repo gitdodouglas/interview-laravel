@@ -10,4 +10,10 @@ class HomeController extends Controller
     {
         return view('index');
     }
+
+    public function posts()
+    {
+        $postController = new PostController;
+        return $postController->showAll();
+    }
 }
