@@ -8,6 +8,11 @@ class PerfilController extends Controller
 {
     public function index($nickname)
     {
+        return view('perfil-post');
+    }
+
+    public function posts($nickname)
+    {
         try {
             $userController = new UserController;
 
