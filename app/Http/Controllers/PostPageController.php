@@ -6,7 +6,12 @@ use Illuminate\Http\Request;
 
 class PostPageController extends Controller
 {
-    public function index($nickname, $id)
+    public function index()
+    {
+        return view('post');
+    }
+
+    public function post($nickname, $id)
     {
         try {
             $userController = new UserController;
