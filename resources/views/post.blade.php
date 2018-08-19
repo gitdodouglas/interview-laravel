@@ -31,10 +31,10 @@
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="/login">Login</a>
+                        <a class="nav-link" href="/login">Entrar</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/cadastro">Cadastro</a>
+                        <a class="nav-link" href="/cadastro">Cadastrar</a>
                     </li>
                 </ul>
             </div>
