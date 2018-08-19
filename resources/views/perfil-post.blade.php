@@ -100,7 +100,7 @@
                     $("#perfil").html(data.mensagem);
                 }
 
-                $.each(data.objeto, function(idx, post){
+                $.each(data.objeto.reverse(), function(idx, post){
                     console.log(post);
                     $(".post-box").append(
                         '<div class="post-preview">' +

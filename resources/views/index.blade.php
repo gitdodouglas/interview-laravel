@@ -94,7 +94,7 @@
                     data: {_token: $('meta[name="csrf-token"]').attr('content')},
                     success: function (data) {
 
-                        $.each(data, function(idx, post){
+                        $.each(data.reverse(), function(idx, post){
                             console.log(post);
                             $(".post-box").append(
                                 '<div class="post-preview">' +
