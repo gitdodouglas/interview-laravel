@@ -46,4 +46,9 @@ class PostController extends Controller
     {
         return Post::find($id);
     }
+
+    public function comments($id)
+    {
+        return Post::find($id)->comments;
+    }
 }

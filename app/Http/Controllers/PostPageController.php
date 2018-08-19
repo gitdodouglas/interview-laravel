@@ -28,6 +28,7 @@ class PostPageController extends Controller
                     return [
                         'codigo' => 'success',
                         'objeto' => $post,
+                        'comentario' => $postController->comments($post->id),
                         'mensagem' => null,
                     ];
                 } else {

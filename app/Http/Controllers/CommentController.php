@@ -3,16 +3,17 @@
 namespace App\Http\Controllers;
 
 use App\Comment;
+use App\User;
 use Illuminate\Http\Request;
 
 class CommentController extends Controller
 {
-    public function create(Request $request)
+    public function create($post_id, Request $request, User $user)
     {
         $comment = new Comment;
-        $comment->post_id = $request->json('post_id');
-        $comment->user_id = $request->json('user_id');
-        $comment->user_nickname = $request->json('user_nickname');
+        $comment->post_id = $post_id;
+        $comment->user_id = $user->id;
+        $comment->user_nickname = $user->nickname;
         $comment->comment = $request->json('comment');
         $comment->save();
         return $comment;

@@ -64,6 +64,33 @@
                     <!-- -->
                 </div>
             </div>
+            <br><br>
+            <div class="row">
+                <div class="col-lg-8 col-md-10 mx-auto comment">
+                    <h4>Comentários:</h4>
+                    <!-- -->
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-lg-8 col-md-10 mx-auto">
+                    <form id="form-comment">
+                        <div class="control-group">
+                            <div class="form-group floating-label-form-group controls">
+                                <label>Comentário</label>
+                                <textarea class="form-control" placeholder="Digite o seu comentário" id="comment" rows="5"></textarea>
+                            </div>
+                        </div>
+                        <br>
+                        <h6 id="mensagem"></h6>
+                        <input id="token" type="hidden" value="{{ csrf_token() }}">
+                        <div id="success"></div>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary">Comentar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
     </article>
 
@@ -96,18 +123,65 @@
                 dataType: 'json',
                 data: {_token: $('meta[name="csrf-token"]').attr('content')},
                 success: function (data) {
+                    console.log(data);
                     $("#titulo-post").html(data.objeto.title);
                     $(".meta").append(
                         '<a href="/@' + data.objeto.user_nickname + '">' + data.objeto.user_nickname + '</a>' +
                         ' em ' + data.objeto.created_at
                     );
                     $(".post").append(data.objeto.text);
+
+                    $.each(data.comentario, function(idx, comment){
+                        $(".comment").append(
+                            '<p><small><a href="/@' + comment.user_nickname + '">' + '@' + comment.user_nickname + '</a> comentou: ' + comment.comment + '</small></p>'
+                        );
+                    });
                 },
                 error: function(XMLHttpRequest, textStatus, errorThrown){
                     console.log(textStatus, errorThrown);
                 }
             })
 
+        });
+    </script>
+
+    <script>
+        $(document).ready(function(){
+            $('#form-comment').submit(function(){
+                const comentario = $('#comment').val();
+                const pathArray = window.location.pathname.split('/');
+                const token = $('#token').val();
+
+                const dados =  {
+                    comment: comentario, _token: token
+                };
+
+                console.log(dados);
+
+                if ($.trim(comentario).length == 0){
+                    $('#mensagem').html('O campo não pode estar vazio!');
+                } else {
+
+                    $.ajax({
+                        method: 'post',
+                        url: '/comment/' + pathArray[2],
+                        dataType: 'json',
+                        contentType: 'application/json',
+                        data: JSON.stringify(dados),
+                        success: function (data) {
+                            console.log(data);
+                            $('#mensagem').html(data.mensagem);
+                            location.reload();
+                        },
+                        error: function (XMLHttpRequest, textStatus, errorThrown) {
+                            console.log(textStatus, errorThrown);
+                        }
+                    });
+
+                }
+
+                return false;
+            });
         });
     </script>
     </body>

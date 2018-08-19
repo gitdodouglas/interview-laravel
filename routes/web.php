@@ -11,22 +11,23 @@
 |
 */
 
-Route::get('/', 'HomeController@index')->name('home');
-Route::post('/', 'HomeController@posts')->name('posts');
+Route::get('/', 'HomeController@index');
+Route::post('/', 'HomeController@posts');
 
 Route::get('/login', 'LoginController@index');
-Route::post('/login', 'LoginController@login')->name('login');
+Route::post('/login', 'LoginController@login');
 
 Route::get('/logout', 'LogoutController@index');
 
 Route::get('/cadastro', 'CadastroController@index');
-Route::post('/cadastro', 'CadastroController@create')->name('cadastro');
+Route::post('/cadastro', 'CadastroController@create');
 
 Route::get('/dash', 'DashController@index');
-Route::post('/dash', 'DashController@create')->name('dash');
+Route::post('/dash', 'DashController@create');
 
-Route::get('/@{nickname}', 'PerfilController@index')->name('perfil');
-Route::post('/@{nickname}', 'PerfilController@posts')->name('perfilPosts');
+Route::get('/@{nickname}', 'PerfilController@index');
+Route::post('/@{nickname}', 'PerfilController@posts');
 
-Route::get('/@{nickname}/post={id}', 'PostPageController@index')->name('post');
-Route::post('/@{nickname}/post={id}', 'PostPageController@post')->name('page');
+Route::get('/@{nickname}/post={id}', 'PostPageController@index');
+Route::post('/@{nickname}/post={id}', 'PostPageController@post');
+Route::post('/comment/post={id}', 'PostCommentController@comment');
